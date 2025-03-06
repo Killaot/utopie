@@ -7,16 +7,15 @@
 }
 
 :root{
---clr-main-bg:black;
---clr-main-theme:#fbbc05;
---clr-text:rgb(170,169,169);
---clr-hover:#e09900;
---clr-light:rgb(192,189,189);
+  --clr-main-bg: black;
+  --clr-main-theme: #fbbc05;
+  --clr-text: rgb(170,169,169);
+  --clr-hover: #e09900;
+  --clr-light: rgb(192,189,189);
 }
 
 footer {
     margin: 4rem 4rem 0;
-    /* background-color: #232323; */
     border-top: 1px solid white;
 }
 
@@ -26,8 +25,6 @@ footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 4rem;
-    /* justify-content: center; */
-    /* align-items: center; */
     padding: 2rem 4rem;
     width: 100%;
     max-width: 1200px;
@@ -101,62 +98,63 @@ footer .follow-us .social-links {
     align-items: center;
     border: 1px solid var(--clr-text);
     border-radius: 50%;
-    /* background-color: #1d1d1d; */
     font-size: 1.125rem;
     transition: 0.25s ease-in-out;
 }
-
 
 .follow-us .social-links a:hover {
     color: white;
     border-color: white;
     background-color: #1d1d1d;
-    /* a size variation to make it look better */
-    transform:scale(1.118);
+    transform: scale(1.118);
 }
 
 footer .copyright {
     font-size: 1.25rem;
     font-weight: 300;
-    /* background-color: #1d1d1d; */
     border-top: 1px solid var(--clr-main-theme);
     padding: 0.75rem 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: grey;
     text-align: center;
-    /* width: calc(4rem + 100% + 4rem); */
 }
 
-@media only screen and (max-width:769px)
-{
-.footer-container{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 1.2em;
-}
-.about-us,.follow-us,.contact-us{
-    margin: 0;
-    padding: 0;
-}
+@media only screen and (max-width: 769px) {
+    .footer-container {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1rem;  /* Réduit l'espace entre les éléments */
+    }
 
-.footer-container h2{
-    font-size: 1.em;
-    padding: 0;
-}
+    footer .contact-us li {
+        line-height: 1.75;
+        display: flex; /* Ajoute cette ligne pour les aligner sur la même ligne */
+        align-items: center; /* Aligne verticalement l'icône et le texte */
+        gap: 10px; /* Espacement entre l'icône et le texte */
+    }
+    
+    footer .contact-us i {
+        margin-right: 0; /* Retire la marge droite pour les icônes */
+        font-size: 1.25rem; /* Ajuste la taille des icônes si nécessaire */
+    }
 
-.follow-us{
-    padding-bottom: 1.5em;
-}
+    .footer-container h2 {
+        font-size: 1.25rem; /* Un peu plus petit */
+        padding: 0;
+    }
 
-.about-us h2{
-    padding-top: 1.5em;
-}
+    .follow-us {
+        padding-bottom: 1em;
+    }
 
-.copyright p{
-    font-size: .8em;
-}
-}
+    .about-us h2 {
+        padding-top: 1em; /* Réduit un peu l'espace */
+    }
 
+    .copyright p {
+        font-size: .8em;
+    }
+}

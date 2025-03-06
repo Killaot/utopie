@@ -2,7 +2,7 @@
 include '../testmysql.php';
 
 
-$stmt = $db->prepare("SELECT * FROM plat ");
+$stmt = $db->prepare("SELECT * FROM plats ");
 
     
 // Lier les paramètres à la requête avec vérification du type
@@ -22,34 +22,33 @@ $cat = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if (isset($_POST['supprimer'])) {
     
-    $sql = "DELETE FROM plat WHERE id = :idPlat";
+    $sql = "DELETE FROM plats WHERE idPlat = :idplats";
 
     $stmt = $db->prepare($sql);
-    $stmt->bindParam(':idPlat', $_POST['idPlat']);
+    $stmt->bindParam(':idplats', $_POST['idplats']);
     $stmt->execute();
     header("Location: ../views/personnalisation.php");
 }
 if (isset($_POST['modifier'])) {
-    $sql = "UPDATE plat SET nom = :nom ,ingredient = :ingredient ,prix =:prix,emplacement =:emplacement  WHERE id = :id";
+    $sql = "UPDATE plats SET nom = :nom ,ingredients = :ingredients ,prix =:prix  WHERE idPlat = :idPlat";
 
     $stmt = $db->prepare($sql);
-    $stmt->bindParam(':id', ($_POST['id']));
+    $stmt->bindParam(':idPlat', ($_POST['idPlat']));
     $stmt->bindParam(':nom', ($_POST['nom']));
-    $stmt->bindParam(':ingredient', ($_POST['ingredient']));
+    $stmt->bindParam(':ingredients', ($_POST['ingredients']));
     $stmt->bindParam(':prix', ($_POST['prix']));
-    $stmt->bindParam(':emplacement', ($_POST['emplacement']));
+    
 
     $stmt->execute();
     header("Location: ../views/personnalisation.php");
 }
 if (isset($_POST['ajouter'])) {
-    $sql="INSERT INTO plat (idCat,nom,ingredient,prix,emplacement) VALUES (:idCat,:nom,:ingredient,:prix,:emplacement)";
+    $sql="INSERT INTO plats (idCat,nom,ingredients,prix) VALUES (:idCat,:nom,:ingredients,:prix)";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':idCat', ($_POST['Categorie']));
     $stmt->bindParam(':nom', ($_POST['nom']));
-    $stmt->bindParam(':ingredient', ($_POST['ingredient']));
+    $stmt->bindParam(':ingredients', ($_POST['ingredients']));
     $stmt->bindParam(':prix', ($_POST['prix']));
-    $stmt->bindParam(':emplacement', ($_POST['emplacement']));
     $stmt->execute();
     header("Location: ../views/personnalisation.php");
 }

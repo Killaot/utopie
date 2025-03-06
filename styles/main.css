@@ -24,7 +24,6 @@ ul {
 a {
   text-decoration: none;
   display: inline-block;
-  /* color: white; */
 }
 
 html,
@@ -34,8 +33,6 @@ body {
   font-family: "Nunito", sans-serif;
   color: white;
   background-color: var(--clr-main-bg);
-  /* position: relative; */
-  /* line-height: 1.5;s */
 }
 
 main {
@@ -43,21 +40,12 @@ main {
 }
 
 main .hero {
-  /* margin-top: 12rem; */
   padding-top: 4rem;
-  /* width: 50%;
-  max-width: 600px; */
   min-height: 100vh;
-  /* display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center; */
   display: grid;
   grid-template-columns: 1fr 1.25fr;
   place-items: center;
   gap: 4rem;
-  /* position: relative;
-  z-index: 100; */
 }
 
 main h1,
@@ -79,40 +67,7 @@ main h2 {
   margin-bottom: 1.5rem;
 }
 
-.landing-hero h1 span {
-  position: relative;
-}
-
-.landing-hero h1 span::before,
-.landing-hero h1 span::after {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.landing-hero h1 span::after {
-  background-color: var(--clr-main-bg);
-  animation: animate 3s forwards;
-  animation-delay: 0.5s;
-}
-
-@keyframes animate {
-  to {
-    left: 100%;
-  }
-}
-
-.hero .get-started a {
-  font-size: 1.075rem;
-  font-weight: bold;
-}
-
 .hero .landing-img {
-  /* border: 1px solid white; */
   position: relative;
   text-align: center;
   height: 100%;
@@ -122,8 +77,6 @@ main h2 {
 
 main img {
   display: inline-block;
-  /* border: 1px solid rgb(63, 63, 63); */
-  /* outline-offset: -8px; */
 }
 
 .hero .landing-img :is(.one, .two, .three) {
@@ -163,11 +116,7 @@ main .below-hero {
 }
 
 .below-hero .about-heading .heading-img {
-  /* border: 1px solid grey;
-    padding: 2rem 0;
-    background-color: #1c1c1c; */
   text-align: center;
-  /* border-radius: 8px; */
 }
 
 .about-heading .heading-img img {
@@ -186,43 +135,6 @@ main .below-hero {
   font-size: 1.095rem;
 }
 
-main .hero-menu-cards {
-  margin: 6rem 0 4rem;
-}
-
-main .hero-menu-cards .container {
-  margin-top: 4rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  text-align: center;
-}
-
-.hero-menu-cards .container img {
-  border-radius: 60px;
-  margin-bottom: 1rem;
-}
-
-.hero-menu-cards .container h4,
-.hero-menu-cards .container p {
-  color: var(--clr-light);
-  margin-bottom: 6px;
-}
-
-.hero-menu-cards .container h4 {
-  color: white;
-  font-size: 1.175rem;
-}
-
-.hero-menu-cards .container .rating {
-  color: var(--clr-main-theme);
-  letter-spacing: 1ch;
-}
-
-.hero-menu-cards .container .price {
-  font-weight: 800;
-}
-
 .categories .cat-container {
   margin: 4rem 0;
   display: grid;
@@ -239,7 +151,6 @@ main .hero-menu-cards .container {
 .categories .cat-container .cat-img {
   text-align: center;
 }
-
 
 .categories .cat-container .cat-img img {
   border-radius: 30px;
@@ -285,11 +196,6 @@ main .our-menu {
   outline-offset: -10px;
 }
 
-/* .our-menu-container .menu-col-1 img {
-    height: 430px;
-    width: 400px;
-} */
-
 .our-menu-container .menu-col-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -299,8 +205,6 @@ main .our-menu {
 
 .our-menu-container .menu-col-2 img {
   margin: auto;
-  /* height: 200px;
-    width: 200px; */
 }
 
 main .discount-card {
@@ -323,7 +227,6 @@ main .discount-card {
   font-weight: 900;
   margin-bottom: 1rem;
   letter-spacing: 0;
-  /* color: var(--clr-main-theme); */
 }
 
 .discount-card .discount-container p {
@@ -343,6 +246,143 @@ main .discount-card {
   font-size: 1.25rem;
   font-weight: bold;
 }
+
 .bottom-img{
   width: 250px;
 }
+
+/* Responsive Styles */
+/* Réduction des espaces sous les sections principales et entre les éléments sur les petits écrans */
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+  main {
+    padding: 0 2rem;
+  }
+
+  .hero .landing-img .one,
+  .hero .landing-img .two,
+  .hero .landing-img .three {
+    width: 80%;
+    left: 10%;
+    right: 10%;
+  }
+
+  .below-hero .about-heading {
+    grid-template-columns: 1fr;
+    gap: 2rem;  /* Réduit l'écart */
+  }
+
+  .categories .cat-container > div {
+    grid-template-columns: 1fr;
+    gap: 2rem;  /* Réduit l'écart */
+  }
+
+  .our-menu .our-menu-container {
+    grid-template-columns: 1fr;
+  }
+
+  .our-menu-container .menu-col-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    padding: 0 1rem;  /* Réduit l'espace autour du contenu */
+  }
+
+  main h1 {
+    font-size: 2.5rem; /* Ajuste la taille de police pour les petits écrans */
+  }
+
+  main h2 {
+    font-size: 2rem; /* Ajuste la taille de police pour les petits écrans */
+  }
+
+  .landing-hero p {
+    font-size: 1rem; /* Ajuste la taille de texte pour les petits écrans */
+  }
+
+  .hero .landing-img .one,
+  .hero .landing-img .two,
+  .hero .landing-img .three {
+    width: 90%;
+    left: 5%;
+    right: 5%;
+  }
+
+  .below-hero .about-heading {
+    grid-template-columns: 1fr;
+    gap: 1rem;  /* Réduit l'écart entre les éléments */
+  }
+
+  .categories .cat-container > div {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;  /* Réduit l'écart */
+  }
+
+  .our-menu .our-menu-container {
+    grid-template-columns: 1fr;
+  }
+
+  .discount-card .discount-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bottom-img {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  main {
+    padding: 0 0.5rem;  /* Réduit encore plus l'espace autour du contenu */
+  }
+  
+
+  main h1 {
+    font-size: 2rem;  /* Réduit la taille du titre */
+  }
+
+  main h2 {
+    font-size: 1.5rem;  /* Réduit la taille du sous-titre */
+  }
+
+  .landing-hero p {
+    font-size: 0.9rem;  /* Réduit la taille du texte */
+  }
+
+  .hero .landing-img .one,
+  .hero .landing-img .two,
+  .hero .landing-img .three {
+    width: 90%;
+    left: 5%;
+    right: 5%;
+  }
+
+  .below-hero .about-heading {
+    grid-template-columns: 1fr;
+    gap: 1rem;  /* Réduit l'écart encore davantage */
+  }
+
+  .categories .cat-container > div {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;  /* Réduit l'écart */
+  }
+
+  .categories .cat-container .cat-description {
+    width: 100%;  /* Ajuste la largeur de la description */
+  }
+
+  .our-menu .our-menu-container {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom-img {
+    width: 120px;  /* Réduit la taille de l'image */
+  }
+}
+
+

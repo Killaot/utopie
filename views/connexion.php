@@ -51,7 +51,7 @@
                                 -->
                                 <form method="POST" id="connexion" class="mt-4">
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-lg" id="pseudo" name="pseudo"
+                                        <input type="text" class="form-control form-control-lg" id="nom" name="nom"
                                             placeholder="Identifiant" required>
                                     </div>
                                     <div class="form-group">

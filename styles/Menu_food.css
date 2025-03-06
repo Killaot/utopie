@@ -2,8 +2,6 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-
-
 .SAS-nav-title {
     display: block;
     color: #fff;
@@ -13,11 +11,11 @@
     color: #fff;
 }
 
-.navbar-nav ms-auto mb-2 mb-lg-0{
+.navbar-nav ms-auto mb-2 mb-lg-0 {
     color: black;
 }
 
-.nav-link{
+.nav-link {
     color: black;
 }
 
@@ -28,35 +26,47 @@
 .bg-light {
     background-color: transparent !important;
 }
-
-.carousel-item {
-    height: 100vh;
-    min-height: 300px;
-    
-}
-.carousel-img-container{
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 100%;
+.carousel-item img {
     width: 100%;
-    position: fixed;
-    left: 0;
-    top: 0
+    height: auto;
+    
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center;
 }
+.carousel-item {
+    position: relative; /* Garantir que le texte sera positionné par rapport à l'élément */
+    height: auto; /* L'image occupe toute la hauteur de l'écran */
+    max-height: 100vh;
+    overflow: hidden; /* S'assurer que l'image ne dépasse pas */
+}
+.carousel-img-container {
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour le texte */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* La hauteur de l'image s'adapte automatiquement */
+    z-index: 0; /* Assurer que l'image soit derrière le texte */
+}
+
 .carousel-caption {
-    bottom: 220px;
-   
+    position: absolute;
+    top: 50%; /* Positionner le texte au centre de l'image */
+    left: 50%; /* Centrer horizontalement */
+    transform: translate(-50%, -50%); /* Ajuster pour un vrai centrage */
+    width: 100%;
+    text-align: center;
+    color: #fff;
 }
 
 .carousel-caption h5 {
     font-size: 3.5rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-top: 25px;
-    color: #fff;
-    font-weight: bolder;
-     font-weight: 702;
-     font-family: "Nunito", sans-serif; 
-    /* background-color: #fff; */
+    margin-top: 25px; /* Ajuster l'espacement au besoin */
+    font-weight: 702;
+    font-family: "Nunito", sans-serif;
 }
 
 .carousel-caption p {
@@ -64,8 +74,6 @@
     margin: auto;
     font-size: 18px;
     line-height: 1.9;
-    /* color: #fff;
-    background-color: black; */
 }
 
 .carousel-caption span {
@@ -73,44 +81,46 @@
     margin: auto;
     font-size: 15px;
     line-height: 1.9;
-    color: #fff;
     font-weight: bolder;
-    font-family:  "Segoe UI", Arial, sans-serif; 
-    /* background-color: black; */
+    font-family: "Segoe UI", Arial, sans-serif;
 }
+
 
 .carousel-caption a {
     text-transform: uppercase;
     text-decoration: none;
-    background:#fbbc05;
+    background: #fbbc05;
     padding: 15px 35px;
-     border-radius: 10px;
+    border-radius: 10px;
     display: inline-block;
     color: white;
-     font-family:  " Arial", sans-serif; 
+    font-family: "Arial", sans-serif;
     font-weight: 250;
     margin-top: 15px;
-     position: relative;
+    position: relative;
     z-index: 1;
 }
-.carousel-caption a::after{
+
+.carousel-caption a::after {
     content: " ";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color:  rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     z-index: -1;
     transition: transform 300ms ease-in;
 }
-.carousel-caption a::after{
+
+.carousel-caption a::after {
     transform: scale(0);
     transform-origin: center;
 }
-.carousel-caption a:hover:after{
+
+.carousel-caption a:hover::after {
     transform: scale(1);
-     border-radius: 10px;
+    border-radius: 10px;
 }
 
 .navbar-nav a {
@@ -152,68 +162,34 @@
     background: #fff;
 }
 
-/* added the body background for having the same color as footer */
-body{
-    background:black;
+/* Ajout du fond de page noir */
+body {
+    background: black;
 }
 
-/* @media only screen and (max-width: 767px) {
-
-    .navbar-nav {
-        text-align: center;
-        background: rgba(0, 0, 0, 0.5);
-    }
-
-    .carousel-caption {
-        bottom: 165px;
-    }
-
-    .carousel-caption h5 {
-        font-size: 17px;
-    }
-
-    .carousel-caption a {
-        padding: 10px 15px;
-        font-size: 15px;
-    }
-
-} */
-
-
-
-
-
-
-/* @media only screen and (max-width: 770px) {
-
-    .nav-content{
-        display: flex;
-        flex-direction: column;
-    }
-    
-} */
-
-
-
-.menu-card-container{
+.menu-card-container {
     margin: 30px 40px 0px 40px;
 }
-.title{
+
+.title {
     font-weight: 700;
     font-size: 50px;
     display: inline;
 }
-.dropdown{
+
+.dropdown {
     float: right;
     font-size: 50px;
     display: inline;
 }
+
 .menu-card {
     margin-top: 40px;
     height: fit-content;
-    width:  fit-content;
+    width: fit-content;
 }
-.card{
+
+.card {
     height: fit-content;
     width: 400px;
     border: 4px solid #fbbc05;
@@ -221,10 +197,12 @@ body{
     overflow: hidden;
     background-color: black;
 }
-.card:hover{
+
+.card:hover {
     border: 2px solid #fbbc05;
 }
-.discription{
+
+.description {
     color: white;
     font-size: 17px;
     font-weight: 450;
@@ -233,19 +211,22 @@ body{
     height: 150px;
     padding: 10px;
 }
-.item-name{
+
+.item-name {
     font-size: 20px;
     text-align: center;
     font-weight: 800;
     color: white;
 }
-.food-img{
+
+.food-img {
     width: 100%;
     height: 250px;
     padding: 0;
     margin-bottom: 15px;
 }
-.addtocart-button{
+
+.addtocart-button {
     background-color: black;
     color: white;
     font-size: 20px;
@@ -256,23 +237,26 @@ body{
     height: 40px;
     border-right: 3px solid #fbbc05;
 }
-.addtocart-button:hover{
+
+.addtocart-button:hover {
     color: black;
     background-color: white;
 }
-.price{
+
+.price {
     background-color: black;
     color: white;
     font-size: 20px;
     font-weight: 500;
     margin-left: 60px;
 }
-.card-container{
-    float: left;
+
+.card-container {
+    clear: both; /* Assure que les éléments flottants ne perturberont pas le flexbox */
     padding: 39px;
     height: fit-content;
     width: fit-content;
+  }
 
-}
 
 

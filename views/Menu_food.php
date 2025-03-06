@@ -44,7 +44,7 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img alt="..." class="d-block w-100" src="../assets/four.png">
+                    <img alt="..."  src="../assets/four.png">
                     <!-- <div class="carousel-img-container"></div> -->
                     <div class="carousel-caption">
                         <h5 class="animated bounceInRight">Cassolette de saint Jacques</h5>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img alt="..." class="d-block w-100" src="../assets/cafeg.png">
+                    <img alt="..."  src="../assets/cafeg.png">
                     <!-- <div class="carousel-img-container"></div> -->
                     <div class="carousel-caption">
                         <h5 class="animated bounceInRight">Café Gourmand</h5>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img alt="..." class="d-block w-100" src="../assets/cuisse.png">
+                    <img alt="..."  src="../assets/cuisse.png">
                     <!-- <div class="carousel-img-container"></div> -->
                     <div class="carousel-caption">
                         <h5 class="animated bounceInRight">Jarret</h5>
@@ -87,32 +87,32 @@
             <div class="box">
                 <div class="row">
                     <h4 id="ligne" class="color">
-                        <strong ><?php echo ($categorie["nom"]) ?>:</strong>
+                        <strong><?php echo ($categorie["nom"]) ?>:</strong>
                     </h4>
                     <?php
-              $idcat = $categorie["id"];
-              $stmt = $db->prepare('SELECT * FROM plat WHERE idCat ="'.$idcat.'"');
+              $idCat = $categorie["idCat"];
+              $stmt = $db->prepare('SELECT * FROM plats WHERE idCat ="'.$idCat.'"');
               $stmt->execute();
               $idCat = $stmt->fetchAll(PDO::FETCH_ASSOC);
-              foreach ($idCat as $plats):
-                if (is_null($plats["prix"])) {
+              foreach ($idCat as $platsss):
+                if (is_null($platsss["prix"])) {
             ?>
-                    <h6 class="color2"><?php echo ($plats["nom"]) ?></h6>
+                    <h6 class="color2"><?php echo ($platsss["nom"]) ?></h6>
                     <?php
                 } else {
                 ?>
                     <h5 style="display: flex; justify-content: space-between;">
-                        <?php echo ($plats["nom"]) ?>
-                        <?php echo ($plats["prix"]), '€' ?>
+                        <?php echo ($platsss["nom"]) ?>
+                        <?php echo ($platsss["prix"]), '€' ?>
                     </h5>
                     <?php
                 }
             ?>
-                    <p><?php echo ($plats["ingredient"]) ?></p>
+                    <p><?php echo ($platsss["ingredients"]) ?></p>
                     <?php endforeach; ?>
                 </div>
             </div>
-            <?php endforeach; ?>
+            <?php endforeach;?>
         </div>
     </section>
 </body>

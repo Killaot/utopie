@@ -7,12 +7,15 @@
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-  }
-  
-  .box {
-    flex-basis: calc(50% - 10px);
-    margin: 5px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Espacement entre les catégories */
+  justify-content: space-between; /* Répartition des éléments sur toute la largeur */
+}
+
+.box {
+  flex: 1 1 calc(50% - 10px); /* Chaque box occupe 50% de la largeur */
+  margin: 5px 0;
+  height: auto; /* Permet à chaque élément d'ajuster sa hauteur à son contenu */
+  box-sizing: border-box; /* Evite les effets secondaires de marges ou paddings */
+}

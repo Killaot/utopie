@@ -3,53 +3,48 @@ include '../testmysql.php';
 session_start();
 $show = false;
 
-
-//Si l'utilisateur a soumis le formulaire, il est alors possible de
+// Si l'utilisateur a soumis le formulaire, il est alors possible de
 // faire les traitements sur les valeurs saisies 
-if (isset($_POST['connexion']))
-   {
-       
-    $pseudo = $_POST['pseudo'];
-
-
+if (isset($_POST['connexion'])) {
+    
+    // Récupération du nom et du mot de passe
+    $nom = $_POST['nom'];  // Utiliser le nom de l'utilisateur
 
     $motdepasse = $_POST['motdepasse'];
-    // vérification dans la base selon le type d'utilisateur
 
-    $stmt = $db->prepare("SELECT * FROM utilisateur WHERE pseudo=:pseudo");
+    // Vérification dans la base de données avec le nom d'utilisateur
+    $stmt = $db->prepare("SELECT * FROM utilisateur WHERE nom=:nom");
 
-    
     // Lier les paramètres à la requête avec vérification du type
-    // pour rechercher si l'utilisateur a bien un mot de passe dans la passe
-    $stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+    $stmt->bindValue(':nom', $nom, PDO::PARAM_STR);
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    
-    if (!empty($pseudo) && !empty($motdepasse)) {
+    if (!empty($nom) && !empty($motdepasse)) {
         if ($stmt->rowCount() > 0) {   
-            // Vérification que les mots de passe et mail soiennt identiques       
+            // Vérification du mot de passe
             if (password_verify($motdepasse, $row["mdp"])) {
                 $show = true;
                 $color = "success";
                 $message = "Connexion réussie, redirection dans 3 secondes...";
-                // initialisation des variables de session nécessaires
-                // à la suite des traitements
-                $_SESSION['pseudo'] = $row['pseudo'];
                 
+                // Initialisation des variables de session nécessaires
+                $_SESSION['nom'] = $row['nom'];
                 $_SESSION['id'] = $row['id'];
                 
+                // Redirection après connexion réussie
                 header("refresh:1; ../index.php");
                 
-            } else {   // affichage des erreurs, cybersécurité??
+            } else {   // Mot de passe incorrect
                 $show = true;
                 $color = "danger";
                 $message = "Mot de passe incorrect.";
             }
-        } else {   // affichage des erreurs, cybersécurité??
+        } else {   // Nom incorrect
             $show = true;
             $color = "danger";
-            $message = "L'identifiant est incorect.";
+            $message = "Le nom d'utilisateur est incorrect.";
         }
     }        
 }
+?>

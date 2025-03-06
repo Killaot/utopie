@@ -17,7 +17,7 @@ Contributing is also a great way to learn more about social coding on Github, ne
 
 ## Pull Requests Review Criteria
 
-- Please fill the **[PR Template]()** properly while making a Pull Request.
+- Please fill the **[PR template]()** properly while making a Pull Request.
 - Your work must be original, written by you not copied from other resources.
 - You must comment on your code or script where necessary.
 - Follow the proper [style guides](https://google.github.io/styleguide/) for your work.

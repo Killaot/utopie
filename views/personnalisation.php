@@ -16,13 +16,13 @@
     <select name="Categorie">
 
     <?php foreach ($cat as $categorie): ?>
-        <option value="<?php echo $categorie["id"] ?>"><?php echo ($categorie["nom"])?></option>
+        <option value="<?php echo $categorie["idCat"] ?>"><?php echo ($categorie["nom"])?></option>
     <?php endforeach ?>
     </select>
     <input type="text" id="nom" name="nom" placeholder="nom">
-    <input type="text" id="ingredient" name="ingredient" placeholder="ingredient">
+    <input type="text" id="ingredients" name="ingredients" placeholder="ingredient">
     <input type="text" id="prix" name="prix" placeholder="prix">
-    <input type="text" id="emplacement" name="emplacement" placeholder="emplacement">
+    
 
     <input name="ajouter" type="submit">
 </form>
@@ -49,20 +49,19 @@
         <th>Ingrédient</th>
         <th>Prix</th>
     </tr>
-    <?php foreach ($row as $plats): 
-        if ($plats["idCat"] == $categorie["id"]) :?>
+    <?php foreach ($row as $platsss): 
+        if ($platsss["idCat"] == $categorie["idCat"]) :?>
     <tr>
-        <td><?php echo ($plats["nom"])?></td>
-        <td><?php echo ($plats["ingredient"])?></td>
-        <td><?php echo ($plats["prix"])?> €</td>
+        <td><?php echo ($platsss["nom"])?></td>
+        <td><?php echo ($platsss["ingredients"])?></td>
+        <td><?php echo ($platsss["prix"])?> €</td>
         <td>
             <form action="../back/personnalisation.php" method="post">
             <label>Modifier</label><br>
-            <input type="hidden" name="id" value="<?php echo $plats['id']; ?>">
-            <input type="text" id="nom" name="nom" placeholder="<?php echo ($plats['nom']); ?>" value="<?php echo ($plats['nom']); ?>">
-            <input type="text" id="ingredient" name="ingredient" placeholder="<?php echo ($plats['ingredient']); ?>" value="<?php echo ($plats['ingredient']); ?>">
-            <input type="text" id="prix" name="prix" placeholder="<?php echo $plats['prix']; ?>" value="<?php echo $plats['prix']; ?>">
-            <input type="text" id="emplacement" name="emplacement" placeholder="<?php echo $plats['emplacement']; ?>" value="<?php echo $plats['emplacement']; ?>">
+            <input type="hidden" name="idPlat" value="<?php echo $platsss['idPlat']; ?>">
+            <input type="text" id="nom" name="nom" placeholder="<?php echo ($platsss['nom']); ?>" value="<?php echo ($platsss['nom']); ?>">
+            <input type="text" id="ingredients" name="ingredients" placeholder="<?php echo ($platsss['ingredients']); ?>" value="<?php echo ($platsss['ingredients']); ?>">
+            <input type="text" id="prix" name="prix" placeholder="<?php echo $platsss['prix']; ?>" value="<?php echo $platsss['prix']; ?>">
 
             <input name="modifier" type="submit">
             </form>
@@ -70,7 +69,7 @@
 
         <td>
             <form action="../back/personnalisation.php" method="post" name="supprimer">
-                <input type="hidden" name="idPlat" value="<?php echo $plats['id']; ?>">
+                <input type="hidden" name="idplats" value="<?php echo $platsss['idPlat']; ?>">
                 <button type="submit" name="supprimer">Supprimer</button>
             </form>
         </td>
