@@ -1,0 +1,9 @@
+span {
+    display: flex;
+    align-items: center;
+  }
+  
+  .petitlogo {
+    height: 60px;
+    margin-right: 10px;
+  }
